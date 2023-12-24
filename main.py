@@ -210,9 +210,9 @@ def get_X_status(x, y):
 
 def get_Y_status(x, y):
     if x > 3000:
-        return "up"
+        return "forward"
     elif x < 1500:
-        return "down"
+        return "backward"
     else:
         return "middle"
 
@@ -233,7 +233,7 @@ def get_ABCD_status(abcd):
 def get_display_edit_name(display_edit_name, display_edit_name_current_index, up_down):
     display_alphabet = "abcdefghijklmnopqrstuvwxyz0123456789"
 
-    if up_down == "up":
+    if up_down == "forward":
         current_char = display_edit_name[display_edit_name_current_index - 1]
         current_char_index = display_alphabet.index(current_char)
         if current_char_index == 0:
@@ -371,17 +371,17 @@ if __name__ == "__main__":
                     update_screen(
                         display_edit_name, "edit", display_edit_name_current_index - 1
                     )
-                if Y == "up":
+                if Y == "forward":
                     display_edit_name = get_display_edit_name(
-                        display_edit_name, display_edit_name_current_index, "up"
+                        display_edit_name, display_edit_name_current_index, "forward"
                     )
 
                     update_screen(
                         display_edit_name, "edit", display_edit_name_current_index - 1
                     )
-                if Y == "down":
+                if Y == "backward":
                     display_edit_name = get_display_edit_name(
-                        display_edit_name, display_edit_name_current_index, "down"
+                        display_edit_name, display_edit_name_current_index, "backward"
                     )
                     update_screen(
                         display_edit_name, "edit", display_edit_name_current_index - 1
