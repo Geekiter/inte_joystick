@@ -262,7 +262,7 @@ if __name__ == "__main__":
     clientID = "joystick"
 
     run = False
-    serverIP = "192.168.123.166"
+    serverIP = "192.168.31.92"
     port = 1883
 
     machineId = "joystick"
@@ -302,6 +302,13 @@ if __name__ == "__main__":
 
     L_status = ["pressed", "unpressed"]
     R_status = ["pressed", "unpressed"]
+
+    ABCD_message = {
+        "A": "greeting",
+        "B": "turnred",
+        "C": "turnoff",
+        "D": "none"
+    }
 
     """
     1. screen init as menu
@@ -345,7 +352,7 @@ if __name__ == "__main__":
                 if X != "middle":
                     mqtt_client.publish(display_device_name, X)
                 if ABCD != "None":
-                    mqtt_client.publish(display_device_name, ABCD)
+                    mqtt_client.publish(display_device_name, ABCD_message[ABCD])
 
             elif display_state == "set":
                 # display_edit_name = display_device_name
